@@ -2,13 +2,16 @@ terraform {
   required_providers {
     powershell = {
       source  = "rfalias/powershell"
-      version = "0.0.1"  # Use a valid version if available
+      version = "~> 0.1"
     }
   }
 }
 
-resource "null_resource" "run_script" {
-  provisioner "local-exec" {
-    command = "powershell.exe -ExecutionPolicy Bypass -File .\\script.ps1"
-  }
+provider "powershell" {}
+
+resource "powershell_script" "hello_world" {
+  script = file("hello.ps1")
+
+  # Optionally, you can specify the execution policy
+  execution_policy = "Bypass"
 }
