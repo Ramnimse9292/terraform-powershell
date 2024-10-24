@@ -15,7 +15,7 @@ provider "powershell" {
 
 resource "null_resource" "run_script" {
   provisioner "local-exec" {
-    command = "powershell.exe -File ./script.ps1"
+    command = "pwsh -File ./script.ps1"
   }
 }
 
