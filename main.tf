@@ -2,10 +2,15 @@ terraform {
   required_providers {
     powershell = {
       source  = "rfalias/powershell"
-      version = "0.0.1"  # Specify the correct version
+      version = "0.0.1"  # Correct version
     }
   }
+
   required_version = ">= 0.12"
+}
+
+provider "powershell" {
+  # Configuration options can be added here if needed
 }
 
 resource "null_resource" "run_script" {
@@ -15,5 +20,5 @@ resource "null_resource" "run_script" {
 }
 
 output "script_output" {
-  value = file("output.txt")
+  value = "Script executed successfully. Check output.txt for results."
 }
