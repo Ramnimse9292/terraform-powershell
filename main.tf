@@ -11,7 +11,7 @@ provider "powershell" {}
 
 resource "powershell_script" "run_script" {
   script = file("script.ps1")
-
-  # Optionally, specify the execution policy
+  
+  # Optionally set execution policy
   execution_policy = "Bypass"
 }
