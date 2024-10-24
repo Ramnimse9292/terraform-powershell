@@ -2,7 +2,7 @@ terraform {
   required_providers {
     powershell = {
       source  = "rfalias/powershell"
-      version = "0.0.1"  # Correct version
+      version = "0.0.1"
     }
   }
 
@@ -10,12 +10,12 @@ terraform {
 }
 
 provider "powershell" {
-  # Configuration options can be added here if needed
+  # No specific configuration needed here
 }
 
 resource "null_resource" "run_script" {
   provisioner "local-exec" {
-    command = "pwsh -File ./script.ps1"
+    command = "powershell -File ./script.ps1"  # Use this for Windows
   }
 }
 
