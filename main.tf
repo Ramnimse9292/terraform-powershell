@@ -2,7 +2,7 @@ terraform {
   required_providers {
     powershell = {
       source  = "rfalias/powershell"
-      version = "~> 1.0"
+      version = "0.0.1"  # Specify the correct version
     }
   }
   required_version = ">= 0.12"
