@@ -15,7 +15,7 @@ provider "powershell" {
 
 resource "null_resource" "run_script" {
   provisioner "local-exec" {
-    command = "powershell -File ./script.ps1"  # Use this for Windows
+    command = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -File ./script.ps1"
   }
 }
 
