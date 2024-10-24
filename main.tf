@@ -9,6 +9,7 @@ terraform {
 
 provider "powershell" {}
 
+# Create a null resource to execute the script
 resource "null_resource" "run_script" {
   provisioner "local-exec" {
     command = "powershell -ExecutionPolicy Bypass -File script.ps1"
