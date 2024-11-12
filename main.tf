@@ -7,11 +7,23 @@ terraform {
   }
 }
 
-provider "powershell" {}
+# Define the powershell provider (if needed for other tasks)
+provider "powershell" {
+  # Any specific configuration related to the powershell provider goes here (if needed)
+}
 
-# Create a null resource to execute the script
-resource "null_resource" "run_script" {
+# Use a null_resource with local-exec to run a PowerShell script locally
+resource "null_resource" "run_powershell_script" {
   provisioner "local-exec" {
-    command = "powershell -ExecutionPolicy Bypass -File script.ps1"
+    command = "powershell.exe -ExecutionPolicy Bypass -File ${path.module}/script.ps1"
   }
+
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+}
+
+# Output message
+output "powershell_output" {
+  value = "PowerShell script executed."
 }
