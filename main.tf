@@ -15,7 +15,7 @@ provider "powershell" {
 # Use a null_resource with local-exec to run a PowerShell script locally
 resource "null_resource" "run_powershell_script" {
   provisioner "local-exec" {
-    command = "powershell.exe -ExecutionPolicy Bypass -File ${path.module}/script.ps1"
+    command = "pwsh -ExecutionPolicy Bypass -File ${path.module}/script.ps1"
   }
 
   triggers = {
@@ -23,7 +23,7 @@ resource "null_resource" "run_powershell_script" {
   }
 }
 
-# Output message
 output "powershell_output" {
   value = "PowerShell script executed."
 }
+
