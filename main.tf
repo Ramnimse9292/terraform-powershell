@@ -27,3 +27,4 @@ output "powershell_output" {
   value = "PowerShell script executed."
 }
 
+
