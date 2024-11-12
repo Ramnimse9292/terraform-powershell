@@ -1,3 +1,2 @@
-# script.ps1
-$OutputFile = "output.txt"
-"Hello, Terraform!" | Out-File -FilePath $OutputFile
+Write-Output "Hello from Terraform!"
+Write-Output "PowerShell script executed successfully."
